@@ -12,12 +12,17 @@ export class StudentsViewComponent {
   constructor(private route: ActivatedRoute, private studentDataService:StudentsDataService) {}
    student:Student;
    isNoData:boolean;
+   inputCount:number;
    ngOnInit() {
+     this.isNoData = false;
+     this.inputCount = 15;
       this.route.params
         .switchMap((params:Params) => this.studentDataService.getStudent(+params['id']))
         .subscribe((student:Student) => {
-            if (student != null)
+            if (student != null) {
               this.student = student;
+              console.log(this.student);
+            }
             else
               this.isNoData = true;
           }

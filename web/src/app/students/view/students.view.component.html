@@ -1,7 +1,7 @@
-<div [hidden] = "!isNoData">
+<div [hidden]="!isNoData">
   <div class="alert alert-danger" role="alert">There is no data for the specific id</div>
 </div>
-<div [hidden] = "isNoData">
+<div [hidden]="isNoData">
   <form class="form-horizontal ">
     <div class="form-group">
       <label class="col-sm-2 control-label">Student id : </label>
@@ -24,7 +24,7 @@
     <div class="form-group">
       <label class="col-sm-2 control-label">File input : </label>
       <div *ngIf="student?.image" class="col-md-4 col-sm-6">
-        <img class="img-responsive" [src]="student?.image" [alt] = "student?.image">
+        <img class="img-responsive" [src]="student?.image" [alt]="student?.image">
       </div>
     </div>
     <div class="form-group">
@@ -38,6 +38,7 @@
         <button type="submit" class="btn btn-default">Add</button>
       </div>
     </div>
+    <course-list [count]="student?.enrolledCourse.length" [enrolledCourse]="student?.enrolledCourse"></course-list>
   </form>
 </div>
 
